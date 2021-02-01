@@ -10,6 +10,13 @@ myscan是参考awvs的poc目录架构，pocsuite3、sqlmap等代码框架，以�
 未经事先双方同意，使用myscan攻击目标是非法的。  
 myscan仅用于安全测试目的
 
+## docker部署
+> 需要去oracle官网下载`jdk-8u281-linux-x64.tar.gz`
+```
+docker build -t myscan .
+docker run --rm -p 127.0.0.1:6379:6379 -p 127.0.0.1:8000:8000 myscan "python cli.py webscan --disable power --clean --process 5"
+```
+
 ## 运行原理
 myscan依赖burpsuite和redis，需启动redis和burpsuite插入myscan的插件。
 
